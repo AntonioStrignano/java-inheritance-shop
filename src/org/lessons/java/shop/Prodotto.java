@@ -18,7 +18,7 @@ public class Prodotto {
 		}
 		
 		
-		//		RANDOM CODE GEN
+//	RANDOM CODE GEN
 		private static String randomCodeGen()
 		{
 			int rdmCode = (int) ((((99999999 - 1) + 1) * Math.random()) + 1);
@@ -29,28 +29,18 @@ public class Prodotto {
 			return code;
 		}
 		
-		//		PREZZATRICE
-		public String prezzoListino() {
-			double prezzoListino = prezzo/IVA;
-			NumberFormat currency = NumberFormat.getCurrencyInstance();
-			return currency.format(prezzoListino);
-		}
-		public String getIvaPrezzoString() {
-			double ivaPrezzo = prezzo - prezzo / IVA;
-			NumberFormat currency = NumberFormat.getCurrencyInstance();
-			return currency.format(ivaPrezzo);
-		}
-		public String getPrezzoString() {
-			NumberFormat currency = NumberFormat.getCurrencyInstance();
-			return currency.format(prezzo);
-		}
-		
-		//  CODICE ESTESO
+//  CODICE ESTESO
 		public String codiceEsteso () {
 			return codice + nome.replace(" ","");
 		}
 		
-		//		GETTER E SETTER
+//	TO STRING
+		public String toString() {
+			return "Nome= " + nome + "\nDescrizione= " + descrizione + "\nCodice esteso= " + this.codiceEsteso() + 
+					"\nPrezzo+ " + prezzo + "(prezzo di listino " + (prezzo / IVA) + ",  di cui IVA " + (prezzo - prezzo / IVA);
+		}
+		
+//	GETTER E SETTER
 		public String getNome() {
 			return nome;
 		}
@@ -75,8 +65,7 @@ public class Prodotto {
 		public String getCodice() {
 			return codice;
 		}
-		//		/GETTER E SETTER
-		
+//	/GETTER E SETTER
 		
 	}
 
