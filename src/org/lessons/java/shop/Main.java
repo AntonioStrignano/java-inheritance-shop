@@ -30,6 +30,7 @@ public class Main {
 				int memoriaS = input.nextInt();
 				input.nextLine();
 				Smartphone s = new Smartphone(nomeS, descrS, prezzoS, memoriaS);
+				cart.aggiungiAlCarrello(s);
 				System.out.println("Stai aggiungendo in carrello il seguente smartphone\n" + s.toString());
 				System.out.println("===============\n"
 						+ "Che prodotto vuoi aggiungere in listino?"
@@ -72,6 +73,7 @@ public class Main {
 					System.out.println("Valore non valido.\nÈ una smartTV? ");
 				}}
 				Televisore tv = new Televisore(nomeT, descrT, prezzoT, larghezzaT, altezzaT, isTSmart);
+				cart.aggiungiAlCarrello(tv);
 				System.out.println("Stai aggiungendo in carrello il seguente televisore\n" + tv.toString());
 				System.out.println("===============\n"
 						+ "Che prodotto vuoi aggiungere in listino?"
@@ -127,12 +129,7 @@ public class Main {
 				}}
 				
 				Cuffia c = new Cuffia(nomeC, descrC, prezzoC, coloreC, isCWireless, isCWired);
-				String isCablataStringed = c.isWired() ? "È una cuffia cablata" : "Non è una cuffia cablata";
-//				 ho distinto i due getter per mettere in pratica entrambi i metodi di processazione delle informazioni: in isWireless ritorna la string dalla classe,
-//				 in isWired faccio elaborare la stringa nel main, lasciando il getter di tipo boolean come per il tipo di attributo originale, in modo da non variare il
-//				 tipo di ritorno. in questo contesto specifico, considerando che uso quegli attributi buleani per stampare una stringa ho trovato sensato che il ritorno del
-//				 getter sia una stringa, perché non ha altri utilizzi, lasciando il main più snello, considerando che vengono trattate informazioni prettamente legate all'oggetto
-//				 perciò da elaborare direttamente nell'oggetto. l'elaborazione in main potrerbbe servire nel momento in cui quel valore buleano ha altri utilizzi in altri metodi
+				cart.aggiungiAlCarrello(c);
 				System.out.println("Stai aggiungendo in carrello le seguenti cuffie\n" + c.toString());
 				System.out.println("===============\n"
 						+ "Che prodotto vuoi aggiungere in listino?"

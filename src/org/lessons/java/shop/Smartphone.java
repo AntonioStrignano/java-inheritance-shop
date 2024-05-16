@@ -24,6 +24,12 @@ public class Smartphone extends Prodotto {
 	}
 //		/RANDOM IMEI GENERATOR
 	
+//		TO STRING
+	@Override
+	public String toString() {
+		return super.toString() + "\nIMEI= " + imei + "\nSpazio di archiviazione+ " + memoria;
+	}
+	
 //		GETTER E SETTER
 	public int getMemoria() {
 		return memoria;

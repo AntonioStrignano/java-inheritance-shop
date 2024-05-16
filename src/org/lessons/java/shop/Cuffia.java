@@ -18,6 +18,12 @@ public class Cuffia extends Prodotto {
 	this.isWired = isWired;
 }
 
+//		TO STRING
+	@Override
+	public String toString() {
+		return super.toString() + "\nColore+ " + colore + "\n" + this.getIsWireless() + "\n" + this.getisWired();
+	}
+	
 //		GETTER E SETTER
 	public String getColore() {
 		return colore;
@@ -35,8 +41,8 @@ public class Cuffia extends Prodotto {
 		this.isWireless = isWireless;
 	}
 
-	public boolean isWired() {
-		return isWired;
+	public String getisWired() {
+		return isWired == true ? "È una cuffia cablata" : "Non è una cuffia cablata";
 	}
 
 	public void setWired(boolean isWired) {
