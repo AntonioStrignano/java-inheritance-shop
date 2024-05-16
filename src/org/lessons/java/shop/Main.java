@@ -29,7 +29,7 @@ public class Main {
 				System.out.println("Memoria smartphone: ");
 				int memoriaS = input.nextInt();
 				input.nextLine();
-				Smartphone s = new Smartphone(nomeS, descrS, prezzoS, memoriaS);
+				Prodotto s = new Smartphone(nomeS, descrS, prezzoS, memoriaS);
 				cart.aggiungiAlCarrello(s);
 				System.out.println("Stai aggiungendo in carrello il seguente smartphone\n" + s.toString());
 				System.out.println("===============\n"
@@ -72,7 +72,7 @@ public class Main {
 					} else {
 					System.out.println("Valore non valido.\nÈ una smartTV? ");
 				}}
-				Televisore tv = new Televisore(nomeT, descrT, prezzoT, larghezzaT, altezzaT, isTSmart);
+				Prodotto tv = new Televisore(nomeT, descrT, prezzoT, larghezzaT, altezzaT, isTSmart);
 				cart.aggiungiAlCarrello(tv);
 				System.out.println("Stai aggiungendo in carrello il seguente televisore\n" + tv.toString());
 				System.out.println("===============\n"
@@ -128,7 +128,7 @@ public class Main {
 					System.out.println("Valore non valido.\nÈ cablata? ");
 				}}
 				
-				Cuffia c = new Cuffia(nomeC, descrC, prezzoC, coloreC, isCWireless, isCWired);
+				Prodotto c = new Cuffia(nomeC, descrC, prezzoC, coloreC, isCWireless, isCWired);
 				cart.aggiungiAlCarrello(c);
 				System.out.println("Stai aggiungendo in carrello le seguenti cuffie\n" + c.toString());
 				System.out.println("===============\n"
@@ -143,7 +143,7 @@ public class Main {
 					break;
 //	CARRELLO
 			case 4:
-				cart.toString();
+				cart.stampaCarrello();
 				System.out.println("===============\n"
 						+ "Che prodotto vuoi aggiungere in listino?"
 						+ "\n1. Smartphone"
@@ -160,4 +160,5 @@ public class Main {
 		}
 		System.out.println("Arrivederci!");
 	}
+	
 }
