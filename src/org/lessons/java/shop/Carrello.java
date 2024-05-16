@@ -1,26 +1,28 @@
 package org.lessons.java.shop;
 
 public class Carrello {
-	private Prodotto[] acquisti;
+	private Object[] acquisti;
 	private int slots;
 	private int nProdotti;
 	
 	public Carrello() {
-		slots = 0;
-		acquisti = new Prodotto[slots];
+// Finche' usiamo array statici e non dinamici la vedo dura
+		slots = 100;
+		acquisti = new Object[slots];
 		nProdotti = 0;
 	}
 	
-	public void aggiungiAlCarrello(Prodotto p) {
-		slots++;
+	public void aggiungiAlCarrello(Object p) {
 		p = this.acquisti[nProdotti];
 		nProdotti++;
 	}
 	
-	public void printCart(){
+	public String toString(){
+		String carrelloStringified = null;
 		for (int i = 0; i < acquisti.length; i++) {
-			System.out.println("\nProdotto n." + i + "\n" + acquisti[i].toString());
-		}
+			carrelloStringified = carrelloStringified + "\nProdotto n." + (i + 1) + "\n" + acquisti[i].toString();
+	}
+		return carrelloStringified;
 	}
 	
 }

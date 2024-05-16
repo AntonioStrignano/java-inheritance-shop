@@ -35,10 +35,12 @@ public class Prodotto {
 		}
 		
 //	TO STRING
+		NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
 		@Override
 		public String toString() {
 			return "Nome= " + nome + "\nDescrizione= " + descrizione + "\nCodice esteso= " + this.codiceEsteso() + 
-					"\nPrezzo " + prezzo + "(prezzo di listino " + (prezzo / IVA) + ",  di cui IVA " + (prezzo - prezzo / IVA);
+					"\nPrezzo " + formatter.format(prezzo) + "(prezzo di listino " + formatter.format(prezzo / IVA) + ",  di cui IVA " + formatter.format(prezzo - prezzo / IVA);
 		}
 		
 //	GETTER E SETTER

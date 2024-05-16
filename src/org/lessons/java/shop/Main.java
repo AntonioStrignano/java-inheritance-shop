@@ -143,7 +143,7 @@ public class Main {
 					break;
 //	CARRELLO
 			case 4:
-				cart.printCart();
+				cart.toString();
 				System.out.println("===============\n"
 						+ "Che prodotto vuoi aggiungere in listino?"
 						+ "\n1. Smartphone"
