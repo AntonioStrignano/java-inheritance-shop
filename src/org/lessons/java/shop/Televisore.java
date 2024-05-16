@@ -20,7 +20,12 @@ public class Televisore extends Prodotto {
 		return numberFormat.format(Math.sqrt((altezza * altezza) + (larghezza * larghezza)) / 2.54) + '"';
 	}
 	
-
+	@Override
+	public String toString() {
+		return super.toString() + "\nDimensioni= " + this.pollicietor() +"(altezza " + altezza + "cm, larghezza " + larghezza +"cm)\n" + this.getIsSmart();  
+		
+	}
+	
 DecimalFormat numberFormat = new DecimalFormat("#.0");
 //			GETTER E SETTER
 	public double getLarghezza() {

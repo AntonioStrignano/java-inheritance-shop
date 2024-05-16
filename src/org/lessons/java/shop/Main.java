@@ -6,11 +6,18 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		int menu;
-		System.out.println("Che prodotto vuoi aggiungere in listino?\n1. Smartphone\n2. Televisore\n3. Cuffia\n0. Esci");
+		Carrello cart = new Carrello();
+		System.out.println("Che prodotto vuoi aggiungere in listino?"
+				+ "\n1. Smartphone"
+				+ "\n2. Televisore"
+				+ "\n3. Cuffia"
+				+ "\n4. Visualizza il carrello"
+				+ "\n0. Esci");
 		menu = input.nextInt();
 		input.nextLine();
 		while(menu!=0) {
 			switch(menu) {
+// SMARTPHONE
 			case 1:
 				System.out.println("Nome smartphone: ");
 				String nomeS = input.nextLine();
@@ -22,16 +29,19 @@ public class Main {
 				System.out.println("Memoria smartphone: ");
 				int memoriaS = input.nextInt();
 				input.nextLine();
-				Smartphone cellulare = new Smartphone(nomeS, descrS, prezzoS, memoriaS);
-				System.out.println("Stai aggiungendo in catalogo lo smartphone " + 
-				cellulare.getNome() + " con descrizione '" + cellulare.getDescrizione() + "'\nCosto: "
-				+ cellulare.getPrezzoString() + " (" + cellulare.prezzoListino() + " da listino, di cui " + cellulare.getIvaPrezzoString() + 
-				" di IVA)\nCodice esteso: " + cellulare.codiceEsteso() + "\nCodice IMEI: " + cellulare.getImei() + "\nSpazio di archiviazione: " + cellulare.getMemoria() + " GB");
-				System.out.println("\nChe prodotto vuoi aggiungere in listino?\n1. Smartphone\n2. Televisore\n3. Cuffia\n0. Esci");
+				Smartphone s = new Smartphone(nomeS, descrS, prezzoS, memoriaS);
+				System.out.println("Stai aggiungendo in carrello il seguente smartphone\n" + s.toString());
+				System.out.println("===============\n"
+						+ "Che prodotto vuoi aggiungere in listino?"
+						+ "\n1. Smartphone"
+						+ "\n2. Televisore"
+						+ "\n3. Cuffia"
+						+ "\n4. Visualizza il carrello"
+						+ "\n0. Esci");
 				menu = input.nextInt();
 				input.nextLine();
 				break;
-				
+// TELEVISORE				
 			case 2:
 				System.out.println("Nome televisore: ");
 				String nomeT = input.nextLine();
@@ -62,14 +72,18 @@ public class Main {
 					System.out.println("Valore non valido.\nÈ una smartTV? ");
 				}}
 				Televisore tv = new Televisore(nomeT, descrT, prezzoT, larghezzaT, altezzaT, isTSmart);
-				System.out.println("Stai aggiungendo in catalogo il televisore " + tv.getNome() + "con descrizione '" + tv.getDescrizione() + "'\nCosto: "
-						+ tv.getPrezzoString() + " (" + tv.prezzoListino() + " da listino, di cui " + tv.getIvaPrezzoString() +
-						" di IVA)\nCodice esteso: " + tv.codiceEsteso() + "\nDimensioni: " + tv.pollicietor() + "(larghezza: " + tv.getLarghezza() + "cm , altezza " + tv.getAltezza()
-						+ "cm)\n" + tv.getIsSmart());
-				System.out.println("\nChe prodotto vuoi aggiungere in listino?\n1. Smartphone\n2. Televisore\n3. Cuffia\n0. Esci");
+				System.out.println("Stai aggiungendo in carrello il seguente televisore\n" + tv.toString());
+				System.out.println("===============\n"
+						+ "Che prodotto vuoi aggiungere in listino?"
+						+ "\n1. Smartphone"
+						+ "\n2. Televisore"
+						+ "\n3. Cuffia"
+						+ "\n4. Visualizza il carrello"
+						+ "\n0. Esci");
 				menu = input.nextInt();
 				input.nextLine();
 				break;
+//	CUFFIA
 			case 3:
 				System.out.println("Nome cuffia: ");
 				String nomeC = input.nextLine();
@@ -112,25 +126,39 @@ public class Main {
 					System.out.println("Valore non valido.\nÈ cablata? ");
 				}}
 				
-				Cuffia cuffioni = new Cuffia(nomeC, descrC, prezzoC, coloreC, isCWireless, isCWired);
-				String isCablataStringed = cuffioni.isWired() ? "È una cuffia cablata" : "Non è una cuffia cablata";
+				Cuffia c = new Cuffia(nomeC, descrC, prezzoC, coloreC, isCWireless, isCWired);
+				String isCablataStringed = c.isWired() ? "È una cuffia cablata" : "Non è una cuffia cablata";
 //				 ho distinto i due getter per mettere in pratica entrambi i metodi di processazione delle informazioni: in isWireless ritorna la string dalla classe,
 //				 in isWired faccio elaborare la stringa nel main, lasciando il getter di tipo boolean come per il tipo di attributo originale, in modo da non variare il
 //				 tipo di ritorno. in questo contesto specifico, considerando che uso quegli attributi buleani per stampare una stringa ho trovato sensato che il ritorno del
 //				 getter sia una stringa, perché non ha altri utilizzi, lasciando il main più snello, considerando che vengono trattate informazioni prettamente legate all'oggetto
 //				 perciò da elaborare direttamente nell'oggetto. l'elaborazione in main potrerbbe servire nel momento in cui quel valore buleano ha altri utilizzi in altri metodi
-				System.out.println("Stai aggiungendo in catalogo le cuffie " + cuffioni.getNome() + " con descrizione '" + cuffioni.getDescrizione() +
-						 "'\nCosto: " + cuffioni.getPrezzoString() + " (" + cuffioni.prezzoListino() + " da listino, di cui " + cuffioni.getIvaPrezzoString() +
-							" di IVA)\nCodice esteso: " + cuffioni.codiceEsteso() + "\nColore: " + cuffioni.getColore() + "\n" + cuffioni.getIsWireless() +"\n" +
-							isCablataStringed);System.out.println("\nChe prodotto vuoi aggiungere in listino?\n1. Smartphone\n2. Televisore\n3. Cuffia");
-							menu = input.nextInt();
-							input.nextLine();
-							
-					System.out.println("Che prodotto vuoi aggiungere in listino?\n1. Smartphone\n2. Televisore\n3. Cuffia\n0. Esci");
-					menu = input.nextInt();
-					input.nextLine();
+				System.out.println("Stai aggiungendo in carrello le seguenti cuffie\n" + c.toString());
+				System.out.println("===============\n"
+						+ "Che prodotto vuoi aggiungere in listino?"
+						+ "\n1. Smartphone"
+						+ "\n2. Televisore"
+						+ "\n3. Cuffia"
+						+ "\n4. Visualizza il carrello"
+						+ "\n0. Esci");
+				menu = input.nextInt();
+				input.nextLine();
 					break;
+//	CARRELLO
+			case 4:
+				cart.printCart();
+				System.out.println("===============\n"
+						+ "Che prodotto vuoi aggiungere in listino?"
+						+ "\n1. Smartphone"
+						+ "\n2. Televisore"
+						+ "\n3. Cuffia"
+						+ "\n4. Visualizza il carrello"
+						+ "\n0. Esci");
+				menu = input.nextInt();
+				input.nextLine();
+				break;
 				
+			default: System.out.println("Il valore non e' valido.");
 			}
 		}
 		System.out.println("Arrivederci!");

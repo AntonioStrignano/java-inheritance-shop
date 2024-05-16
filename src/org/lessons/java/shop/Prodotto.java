@@ -35,9 +35,10 @@ public class Prodotto {
 		}
 		
 //	TO STRING
+		@Override
 		public String toString() {
 			return "Nome= " + nome + "\nDescrizione= " + descrizione + "\nCodice esteso= " + this.codiceEsteso() + 
-					"\nPrezzo+ " + prezzo + "(prezzo di listino " + (prezzo / IVA) + ",  di cui IVA " + (prezzo - prezzo / IVA);
+					"\nPrezzo " + prezzo + "(prezzo di listino " + (prezzo / IVA) + ",  di cui IVA " + (prezzo - prezzo / IVA);
 		}
 		
 //	GETTER E SETTER
