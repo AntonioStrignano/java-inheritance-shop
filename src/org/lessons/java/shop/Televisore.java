@@ -1,28 +1,38 @@
 package org.lessons.java.shop;
 
+import java.text.DecimalFormat;
+
 public class Televisore extends Prodotto {
-	private int larghezza;
-	private int altezza;
+	private double larghezza;
+	private double altezza;
 	private boolean isSmart;
 		
 //		COSTRUTTORE
-	public Televisore (String nome, String descrizione, float prezzo, int larghezza, int altezza, boolean isSmart) {
+	public Televisore (String nome, String descrizione, float prezzo, double larghezza, double altezza, boolean isSmart) {
 		super(nome, descrizione, prezzo);
 		this.larghezza = larghezza;
 		this.altezza = altezza;
 		this.isSmart = isSmart;
 	}
+	
+// 			POLLICIETOR
+	public String pollicietor() {
+		return numberFormat.format(Math.sqrt((altezza * altezza) + (larghezza * larghezza)) / 2.54) + '"';
+	}
+	
+
+DecimalFormat numberFormat = new DecimalFormat("#.0");
 //			GETTER E SETTER
-	public int getLarghezza() {
+	public double getLarghezza() {
 		return larghezza;
 	}
 
-	public int getAltezza() {
+	public double getAltezza() {
 		return altezza;
 	}
 
-	public boolean isSmart() {
-		return isSmart;
+	public String getIsSmart() {
+		return isSmart == true ? "È una SmartTV" : "Non è una SmartTV";
 	}
 	public void setLarghezza(int larghezza) {
 		this.larghezza = larghezza;
